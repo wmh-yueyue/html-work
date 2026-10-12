@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS图形hover效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #191a23;
+        }
+        .container{
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+        }
+        .item{
+            width: 140px;
+            height: 140px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        /* hover文字，默认隐藏 */
+        .item::before{
+            content: "hover";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 22px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        /* 悬浮公共样式：上移10px，阴影偏移变为0 */
+        .item:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 0 22px rgba(255,255,255,0.2);
+        }
+        .item:hover::before{
+            opacity: 1;
+        }
+
+        /* 第1个：直角方块 橙红渐变 */
+        .item-1{
+            border-radius: 0px;
+            background: linear-gradient(135deg, #ff9255, #ff5b60);
+            box-shadow: 0 8px 20px rgba(255,91,96,0.3);
+        }
+        /* 第2个：圆角方块 青绿色渐变 */
+        .item-2{
+            border-radius: 16px;
+            background: linear-gradient(135deg, #39d888, #22d1b0);
+            box-shadow: 0 8px 20px rgba(34,209,176,0.3);
+        }
+        /* 第3个：大圆角方块 紫灰渐变 */
+        .item-3{
+            border-radius: 28px;
+            background: linear-gradient(135deg, #a088aa, #7c6895);
+            box-shadow: 0 8px 20px rgba(124,104,149,0.3);
+        }
+        /* 第4个：圆形 暖黄渐变 */
+        .item-4{
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffdd77, #ffb078);
+            box-shadow: 0 8px 20px rgba(255,176,120,0.3);
+        }
+        /* 第5个：圆角方块 青灰渐变 */
+        .item-5{
+            border-radius: 14px;
+            background: linear-gradient(135deg, #608c78, #487480);
+            box-shadow: 0 8px 20px rgba(72,116,128,0.3);
+        }
+        /* 第6个：球形圆 淡紫渐变 */
+        .item-6{
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c4b2d6, #9d86b8);
+            box-shadow: 0 8px 20px rgba(157,134,184,0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item item-1"></div>
+    <div class="item item-2"></div>
+    <div class="item item-3"></div>
+    <div class="item item-4"></div>
+    <div class="item item-5"></div>
+    <div class="item item-6"></div>
+</div>
+</body>
+</html>
